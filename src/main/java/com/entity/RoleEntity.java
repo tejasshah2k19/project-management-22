@@ -10,8 +10,8 @@ import javax.persistence.Table;
 @Table(name = "role")
 public class RoleEntity {
 
-	@Id
-	@GeneratedValue
+	@Id //pk 
+	@GeneratedValue //autoincrement 
  	Long roleId; //long 
 
 	
