@@ -17,6 +17,8 @@ public class RoleEntity {
 	
 	String roleName;
 
+	//@ManyToOne 
+	//List<User> user; 
 
 	public Long getRoleId() {
 		return roleId;

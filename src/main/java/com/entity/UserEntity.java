@@ -1,32 +1,47 @@
 package com.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="users")
+@Table(name = "users")
 public class UserEntity {
 
 	@Id
 	@GeneratedValue
-	int userId;
-	
-	
-	String firstName;
-	
-	String email;
-	
-	String password; 
-	
-	int roleId;
+	Long userId;
 
-	public int getUserId() {
+	String firstName;
+
+	String email;
+
+	String password;
+
+	@OneToOne
+	@JoinColumn(name = "roleId", referencedColumnName = "roleId")
+	RoleEntity role;
+
+	public RoleEntity getRole() {
+		return role;
+	}
+
+	public void setRole(RoleEntity role) {
+		this.role = role;
+	}
+
+ 
+	
+
+	public Long getUserId() {
 		return userId;
 	}
 
-	public void setUserId(int userId) {
+	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
 
@@ -54,13 +69,4 @@ public class UserEntity {
 		this.password = password;
 	}
 
-	public int getRoleId() {
-		return roleId;
-	}
-
-	public void setRoleId(int roleId) {
-		this.roleId = roleId;
-	}
-	
-	
 }
